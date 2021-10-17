@@ -1,3 +1,4 @@
+(function() {
 const inputElm = document.querySelector("#input")
 const formElm = document.querySelector("form")
 const winingScoreElm = document.querySelector(".winScore")
@@ -22,8 +23,7 @@ turn = 'player-1'
 
 
 
-//p1BtnElm.setAttribute('disabled', 'disabled')
-//p2BtnElm.setAttribute('disabled', 'disabled')
+
 
 function genRanNum(max) {
     return Math.floor(Math.random() * max + 1)
@@ -88,26 +88,8 @@ function displayWinner(p1, p2) {
     }
 }
 
-// function checkWinner() {
-//     const p1Winscore = winScore <= p1Score
-//     const p2Winscore = winScore <= p2Score
-//     if (p1Winscore || p2Winscore) {
-//         p1BtnElm.setAttribute('disabled', 'disabled')
-//         p2BtnElm.setAttribute('disabled', 'disabled')
-//     }
-//     displayWinner(p1Winscore, p2Winscore)
-// }
 
 
-
-
-// function displayWinner(p1, p2) {
-//     if (p1) {
-//         formElm.insertAdjacentHTML('beforebegin', '<p class = "winMsg" >Player 1 is winner</p>')
-//     } else if (p2) {
-//         formElm.insertAdjacentHTML('beforebegin', '<p class = "winMsg" >Player 2 is winner</p>')
-//     }
-// }
 
 
 p2BtnElm.addEventListener('click', e => {
@@ -146,5 +128,5 @@ function initStage() {
     }
     
 }
-
+})
 
