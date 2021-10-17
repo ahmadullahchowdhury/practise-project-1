@@ -4,11 +4,13 @@ const inputElm = document.querySelector("#input")
 const formElm = document.querySelector("form")
 const winingScoreElm = document.querySelector(".winScore")
 
+
 const p1ScoreElm = document.querySelector(".p1Score")
 const p2ScoreElm = document.querySelector(".p2Score")
 const p1BtnElm = document.querySelector(".p1Btn")
 const p2BtnElm = document.querySelector(".p2Btn")
 const resetElm = document.querySelector(".reset")
+const submitBtnElm = document.querySelector(".sub-btn")
 
 let winScore = 0
 let p1Score = 0
@@ -40,6 +42,7 @@ formElm.addEventListener('submit', e => {
     }
     p1BtnElm.removeAttribute('disabled')
     p2BtnElm.removeAttribute('disabled')
+    submitBtnElm.setAttribute('disabled', 'disabled')
 })
 
 p1BtnElm.addEventListener('click', e => {
@@ -68,11 +71,11 @@ p1BtnElm.addEventListener('click', e => {
 
 function checkWinner() {
     if (p1Score >= winScore) {
-        formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 1 is the winner!</p></h4>");
+        formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 1 is the winner!</p></h4><p>Press  Reset/Restart to Play the Game again</p>");
         p1BtnElm.setAttribute("disabled", "disabled");
         p2BtnElm.setAttribute("disabled", "disabled");
     } else if (p2Score >= winScore) {
-        formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 2 is the winner!</p></h4>");
+        formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 2 is the winner!</p></h4><p>Press  Reset/Restart to Play the Game again</p>");
         p1BtnElm.setAttribute("disabled", "disabled");
         p2BtnElm.setAttribute("disabled", "disabled");
     }
@@ -103,6 +106,7 @@ resetElm.addEventListener('click', e => {
     winingScoreElm.textContent = "Please enter a score to win"
     winScore = 0
     initStage()
+    submitBtnElm.removeAttribute('disabled')
 })
 
 function initStage(){
