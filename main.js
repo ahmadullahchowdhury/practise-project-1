@@ -96,6 +96,9 @@ p2BtnElm.addEventListener('click', e => {
 resetElm.addEventListener('click', e => {
     winScore = 10
     initStage()
+    if (document.querySelector('.inval-input')) {
+        document.querySelector('.inval-input').remove()
+    }
 })
 
 function initStage() {
@@ -111,6 +114,7 @@ function initStage() {
     if (document.querySelector('.winMsg')) {
         document.querySelector('.winMsg').remove()
     }
+    
 }
 
 
