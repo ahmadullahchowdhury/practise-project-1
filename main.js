@@ -14,7 +14,7 @@ let winScore = 0
 let p1Score = 0
 let p2Score = 0
 
-winingScoreElm.textContent = "Please enter a score to win"
+winingScoreElm.textContent = "Please enter a Score to win"
 
 turn = ''
 
@@ -34,7 +34,7 @@ formElm.addEventListener('submit', e => {
             document.querySelector('.inval-input').remove()
         }
     winScore = +inputElm.value
-    winingScoreElm.innerHTML =  ` Player who will reach  <b>${winScore}</b> will win the game`
+    winingScoreElm.innerHTML =  ` Player who will score <b>${winScore}</b> first, will win the game.`
     inputElm.value = ''
     initStage()
     }
@@ -56,36 +56,36 @@ p1BtnElm.addEventListener('click', e => {
 
 //checking who is winner
 
-function checkWinner() {
-    const p1Winscore = winScore <= p1Score
-    const p2Winscore = winScore <= p2Score
-    if (p1Winscore || p2Winscore) {
-        p1BtnElm.setAttribute('disabled', 'disabled')
-        p2BtnElm.setAttribute('disabled', 'disabled')
-    }
-    displayWinner(p1Winscore, p2Winscore)
-}
-
 // function checkWinner() {
-//     if (p1Score >= winScore) {
-//         formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 1 is the winner!</p></h4>");
-//         p1BtnElm.setAttribute("disabled", "disabled");
-//         p2BtnElm.setAttribute("disabled", "disabled");
-//     } else if (p2Score >= winScore) {
-//         formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 2 is the winner!</p></h4>");
-//         p1BtnElm.setAttribute("disabled", "disabled");
-//         p2BtnElm.setAttribute("disabled", "disabled");
+//     const p1Winscore = winScore <= p1Score
+//     const p2Winscore = winScore <= p2Score
+//     if (p1Winscore || p2Winscore) {
+//         p1BtnElm.setAttribute('disabled', 'disabled')
+//         p2BtnElm.setAttribute('disabled', 'disabled')
 //     }
+//     displayWinner(p1Winscore, p2Winscore)
 // }
 
-
-function displayWinner(p1, p2) {
-    if (p1) {
-        formElm.insertAdjacentHTML('beforebegin', '<p class = "winMsg" >Player 1 is winner</p>')
-    } else if (p2) {
-        formElm.insertAdjacentHTML('beforebegin', '<p class = "winMsg" >Player 2 is winner</p>')
+function checkWinner() {
+    if (p1Score >= winScore) {
+        formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 1 is the winner!</p></h4>");
+        p1BtnElm.setAttribute("disabled", "disabled");
+        p2BtnElm.setAttribute("disabled", "disabled");
+    } else if (p2Score >= winScore) {
+        formElm.insertAdjacentHTML("beforebegin", "<h4><p class = 'winMsg'>Player 2 is the winner!</p></h4>");
+        p1BtnElm.setAttribute("disabled", "disabled");
+        p2BtnElm.setAttribute("disabled", "disabled");
     }
 }
+
+
+// function displayWinner(p1, p2) {
+//     if (p1) {
+//         formElm.insertAdjacentHTML('beforebegin', '<p class = "winMsg" >Player 1 is winner</p>')
+//     } else if (p2) {
+//         formElm.insertAdjacentHTML('beforebegin', '<p class = "winMsg" >Player 2 is winner</p>')
+//     }
+// }
 
 
 p2BtnElm.addEventListener('click', e => {
